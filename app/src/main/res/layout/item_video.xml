@@ -14,7 +14,7 @@
         android:foreground="@drawable/card_focus"
         android:duplicateParentState="true">
 
-        <io.github.enestahtaci.akis.ui.WideImageView
+        <io.github.enestahtaci.seyir.ui.WideImageView
             android:id="@+id/thumb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

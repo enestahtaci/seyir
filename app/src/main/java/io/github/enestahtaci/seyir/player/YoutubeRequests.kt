@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.player
+package io.github.enestahtaci.seyir.player
 
 import android.net.Uri
 import androidx.annotation.OptIn
@@ -8,7 +8,7 @@ import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.DataSpec
 import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.datasource.ResolvingDataSource
-import io.github.enestahtaci.akis.net.HttpDownloader
+import io.github.enestahtaci.seyir.net.HttpDownloader
 import org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper
 import java.util.concurrent.atomic.AtomicLong
 

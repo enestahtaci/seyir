@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Akış</string>
+    <string name="app_name">Seyir</string>
     <string name="nav_home">Ana sayfa</string>
     <string name="nav_subscriptions">Abonelikler</string>
     <string name="nav_shorts">Shorts</string>
@@ -38,7 +38,7 @@
     <string name="settings_clear_history">İzleme geçmişini temizle</string>
     <string name="settings_clear_confirm">Emin misin? Silmek için tekrar Tamam\'a bas</string>
     <string name="settings_history_cleared">Geçmiş temizlendi</string>
-    <string name="settings_version">Akış %1$s · kişisel kullanım için · GPL-3.0</string>
+    <string name="settings_version">Seyir %1$s · kişisel kullanım için · GPL-3.0</string>
     <string name="on">Açık</string>
     <string name="off">Kapalı</string>
     <string name="skip">Atla</string>

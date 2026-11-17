@@ -17,5 +17,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "akis"
+rootProject.name = "seyir"
 include(":app")

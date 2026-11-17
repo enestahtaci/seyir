@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.player
+package io.github.enestahtaci.seyir.player
 
 import android.media.MediaCodecInfo
 import android.media.MediaCodecList

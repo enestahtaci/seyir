@@ -10,7 +10,7 @@
     <color name="focus">#FFFFFF</color>
     <color name="badge">#CC000000</color>
 
-    <style name="Theme.Akis" parent="@android:style/Theme.DeviceDefault.NoActionBar">
+    <style name="Theme.Seyir" parent="@android:style/Theme.DeviceDefault.NoActionBar">
         <item name="android:windowBackground">@color/page</item>
         <item name="android:colorBackground">@color/page</item>
         <item name="android:colorAccent">@color/accent</item>
@@ -19,7 +19,7 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="Akis.Nav" parent="">
+    <style name="Seyir.Nav" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">52dp</item>
         <item name="android:layout_marginBottom">6dp</item>
@@ -34,7 +34,7 @@
     </style>
 
     <!-- One settings row: "Name" on the left, the current value on the right; OK changes it. -->
-    <style name="Akis.Setting" parent="">
+    <style name="Seyir.Setting" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">60dp</item>
@@ -50,7 +50,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Akis.Tab" parent="">
+    <style name="Seyir.Tab" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:layout_marginEnd">12dp</item>

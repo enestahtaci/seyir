@@ -25,12 +25,12 @@
             android:textSize="26sp"
             android:textStyle="bold" />
 
-        <TextView android:id="@+id/navHome" style="@style/Akis.Nav" android:text="@string/nav_home" />
-        <TextView android:id="@+id/navSubscriptions" style="@style/Akis.Nav" android:text="@string/nav_subscriptions" />
-        <TextView android:id="@+id/navShorts" style="@style/Akis.Nav" android:text="@string/nav_shorts" />
-        <TextView android:id="@+id/navSearch" style="@style/Akis.Nav" android:text="@string/nav_search" />
-        <TextView android:id="@+id/navHistory" style="@style/Akis.Nav" android:text="@string/nav_history" />
-        <TextView android:id="@+id/navSettings" style="@style/Akis.Nav" android:text="@string/nav_settings" />
+        <TextView android:id="@+id/navHome" style="@style/Seyir.Nav" android:text="@string/nav_home" />
+        <TextView android:id="@+id/navSubscriptions" style="@style/Seyir.Nav" android:text="@string/nav_subscriptions" />
+        <TextView android:id="@+id/navShorts" style="@style/Seyir.Nav" android:text="@string/nav_shorts" />
+        <TextView android:id="@+id/navSearch" style="@style/Seyir.Nav" android:text="@string/nav_search" />
+        <TextView android:id="@+id/navHistory" style="@style/Seyir.Nav" android:text="@string/nav_history" />
+        <TextView android:id="@+id/navSettings" style="@style/Seyir.Nav" android:text="@string/nav_settings" />
     </LinearLayout>
 
     <LinearLayout

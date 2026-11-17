@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis
+package io.github.enestahtaci.seyir
 
 import android.app.Activity
 import android.content.Context
@@ -19,13 +19,13 @@ import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
-import io.github.enestahtaci.akis.data.Db
-import io.github.enestahtaci.akis.data.Settings
-import io.github.enestahtaci.akis.player.SponsorBlock
-import io.github.enestahtaci.akis.player.StreamSource
-import io.github.enestahtaci.akis.ui.Format
-import io.github.enestahtaci.akis.yt.Video
-import io.github.enestahtaci.akis.yt.YouTube
+import io.github.enestahtaci.seyir.data.Db
+import io.github.enestahtaci.seyir.data.Settings
+import io.github.enestahtaci.seyir.player.SponsorBlock
+import io.github.enestahtaci.seyir.player.StreamSource
+import io.github.enestahtaci.seyir.ui.Format
+import io.github.enestahtaci.seyir.yt.Video
+import io.github.enestahtaci.seyir.yt.YouTube
 import org.schabi.newpipe.extractor.ServiceList
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
@@ -249,8 +249,8 @@ class PlayerActivity : Activity() {
     }
 
     companion object {
-        private const val TAG = "akis"
-        private const val PERF = "akis.perf"
+        private const val TAG = "seyir"
+        private const val PERF = "seyir.perf"
         private const val EXTRA_INDEX = "index"
         private const val SPONSOR_CHECK_MS = 300L
         private const val SEEK_MS = 10_000L

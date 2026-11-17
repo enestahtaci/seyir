@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.ui
+package io.github.enestahtaci.seyir.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.github.enestahtaci.akis.R
-import io.github.enestahtaci.akis.yt.Channel
-import io.github.enestahtaci.akis.yt.Video
+import io.github.enestahtaci.seyir.R
+import io.github.enestahtaci.seyir.yt.Channel
+import io.github.enestahtaci.seyir.yt.Video
 
 /** A section title spanning the whole grid row ("İzlemeye devam et", "Abonelikler"). */
 data class Header(val text: String)

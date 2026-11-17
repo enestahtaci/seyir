@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "io.github.enestahtaci.akis"
+    namespace = "io.github.enestahtaci.seyir"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "io.github.enestahtaci.akis"
+        applicationId = "io.github.enestahtaci.seyir"
         minSdk = 28
         targetSdk = 37
         versionCode = 1
@@ -33,7 +33,7 @@ android {
 }
 
 tasks.withType<Test>().configureEach {
-    systemProperty("akis.liveTests", providers.gradleProperty("akis.liveTests").getOrElse("false"))
+    systemProperty("seyir.liveTests", providers.gradleProperty("seyir.liveTests").getOrElse("false"))
     testLogging { showStandardStreams = true }
 }
 

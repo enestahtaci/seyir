@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.net
+package io.github.enestahtaci.seyir.net
 
 import org.schabi.newpipe.extractor.downloader.Downloader
 import org.schabi.newpipe.extractor.downloader.Request

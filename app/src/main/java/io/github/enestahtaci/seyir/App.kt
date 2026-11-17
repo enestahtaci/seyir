@@ -1,7 +1,7 @@
-package io.github.enestahtaci.akis
+package io.github.enestahtaci.seyir
 
 import android.app.Application
-import io.github.enestahtaci.akis.net.HttpDownloader
+import io.github.enestahtaci.seyir.net.HttpDownloader
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.localization.ContentCountry
 import org.schabi.newpipe.extractor.localization.Localization

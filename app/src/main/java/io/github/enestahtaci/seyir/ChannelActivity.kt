@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis
+package io.github.enestahtaci.seyir
 
 import android.app.Activity
 import android.content.Context
@@ -15,15 +15,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.github.enestahtaci.akis.data.Db
-import io.github.enestahtaci.akis.data.Feed
-import io.github.enestahtaci.akis.ui.CardAdapter
-import io.github.enestahtaci.akis.ui.Format
-import io.github.enestahtaci.akis.ui.Thumbnails
-import io.github.enestahtaci.akis.yt.Channel
-import io.github.enestahtaci.akis.yt.ChannelPage
-import io.github.enestahtaci.akis.yt.Video
-import io.github.enestahtaci.akis.yt.YouTube
+import io.github.enestahtaci.seyir.data.Db
+import io.github.enestahtaci.seyir.data.Feed
+import io.github.enestahtaci.seyir.ui.CardAdapter
+import io.github.enestahtaci.seyir.ui.Format
+import io.github.enestahtaci.seyir.ui.Thumbnails
+import io.github.enestahtaci.seyir.yt.Channel
+import io.github.enestahtaci.seyir.yt.ChannelPage
+import io.github.enestahtaci.seyir.yt.Video
+import io.github.enestahtaci.seyir.yt.YouTube
 import org.schabi.newpipe.extractor.channel.tabs.ChannelTabs
 import java.util.concurrent.Executors
 
@@ -81,7 +81,7 @@ class ChannelActivity : Activity() {
             main.post {
                 if (isDestroyed) return@post
                 result.onSuccess { show(it) }.onFailure {
-                    Log.w("akis", "channel failed: ${it.javaClass.simpleName}")
+                    Log.w("seyir", "channel failed: ${it.javaClass.simpleName}")
                     status.setText(R.string.network_error)
                 }
             }

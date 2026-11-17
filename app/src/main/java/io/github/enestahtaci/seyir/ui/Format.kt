@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.ui
+package io.github.enestahtaci.seyir.ui
 
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols

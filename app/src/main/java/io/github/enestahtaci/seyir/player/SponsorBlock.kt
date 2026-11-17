@@ -1,6 +1,6 @@
-package io.github.enestahtaci.akis.player
+package io.github.enestahtaci.seyir.player
 
-import io.github.enestahtaci.akis.net.HttpDownloader
+import io.github.enestahtaci.seyir.net.HttpDownloader
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL

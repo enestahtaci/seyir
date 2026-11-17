@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.ui
+package io.github.enestahtaci.seyir.ui
 
 import android.content.Context
 import android.util.AttributeSet

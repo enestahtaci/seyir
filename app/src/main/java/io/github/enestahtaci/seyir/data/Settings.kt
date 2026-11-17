@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.data
+package io.github.enestahtaci.seyir.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -45,7 +45,7 @@ class Settings private constructor(private val prefs: SharedPreferences) {
 
         @Volatile private var instance: Settings? = null
         fun get(context: Context): Settings = instance ?: synchronized(this) {
-            instance ?: Settings(context.applicationContext.getSharedPreferences("akis", Context.MODE_PRIVATE)).also { instance = it }
+            instance ?: Settings(context.applicationContext.getSharedPreferences("seyir", Context.MODE_PRIVATE)).also { instance = it }
         }
     }
 }

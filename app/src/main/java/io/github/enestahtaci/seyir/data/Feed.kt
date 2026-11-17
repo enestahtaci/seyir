@@ -1,7 +1,7 @@
-package io.github.enestahtaci.akis.data
+package io.github.enestahtaci.seyir.data
 
-import io.github.enestahtaci.akis.yt.Channel
-import io.github.enestahtaci.akis.yt.YouTube
+import io.github.enestahtaci.seyir.yt.Channel
+import io.github.enestahtaci.seyir.yt.YouTube
 import java.util.concurrent.Executors
 
 /**

@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.yt
+package io.github.enestahtaci.seyir.yt
 
 import org.schabi.newpipe.extractor.Image
 import org.schabi.newpipe.extractor.InfoItem

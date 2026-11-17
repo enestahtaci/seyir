@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis.ui
+package io.github.enestahtaci.seyir.ui
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.LruCache
 import android.widget.ImageView
-import io.github.enestahtaci.akis.net.HttpDownloader
+import io.github.enestahtaci.seyir.net.HttpDownloader
 import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
 import java.net.URL

@@ -1,4 +1,4 @@
-package io.github.enestahtaci.akis
+package io.github.enestahtaci.seyir
 
 import android.app.Activity
 import android.os.Build
@@ -18,13 +18,13 @@ import android.window.OnBackInvokedDispatcher
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.github.enestahtaci.akis.data.Db
-import io.github.enestahtaci.akis.data.Feed
-import io.github.enestahtaci.akis.data.Settings
-import io.github.enestahtaci.akis.ui.CardAdapter
-import io.github.enestahtaci.akis.ui.Header
-import io.github.enestahtaci.akis.yt.Video
-import io.github.enestahtaci.akis.yt.YouTube
+import io.github.enestahtaci.seyir.data.Db
+import io.github.enestahtaci.seyir.data.Feed
+import io.github.enestahtaci.seyir.data.Settings
+import io.github.enestahtaci.seyir.ui.CardAdapter
+import io.github.enestahtaci.seyir.ui.Header
+import io.github.enestahtaci.seyir.yt.Video
+import io.github.enestahtaci.seyir.yt.YouTube
 import java.util.concurrent.Executors
 
 /**
@@ -163,7 +163,7 @@ class MainActivity : Activity() {
         refresher.execute {
             val started = System.nanoTime()
             Feed.refresh(db)
-            Log.i("akis.perf", "feed refresh ${(System.nanoTime() - started) / 1_000_000} ms")
+            Log.i("seyir.perf", "feed refresh ${(System.nanoTime() - started) / 1_000_000} ms")
             refreshing = false
             main.post { if (!isDestroyed && (page == Page.HOME || page == Page.SHORTS)) show(page) }
         }
@@ -245,7 +245,7 @@ class MainActivity : Activity() {
 
     /** A focusable row "label:  value"; OK runs [change], then every row redraws its value in place. */
     private fun row(label: String, value: () -> String, change: () -> Unit): TextView {
-        val view = TextView(this, null, 0, R.style.Akis_Setting)
+        val view = TextView(this, null, 0, R.style.Seyir_Setting)
         view.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             .apply { bottomMargin = (6 * resources.displayMetrics.density).toInt() }
         settingsRefreshers += { value().let { v -> view.text = if (v.isEmpty()) label else "$label:  $v" } }
@@ -280,13 +280,13 @@ class MainActivity : Activity() {
             main.post {
                 if (id != loadId || isDestroyed) return@post
                 result.onSuccess { items ->
-                    Log.i("akis.perf", "search ${items.size} results in ${(System.nanoTime() - started) / 1_000_000} ms")
+                    Log.i("seyir.perf", "search ${items.size} results in ${(System.nanoTime() - started) / 1_000_000} ms")
                     searchResults = items
                     adapter.show(items, emptyMap())
                     setStatus(if (items.isEmpty()) getString(R.string.no_results) else null)
                     if (items.isNotEmpty()) grid.post { enterPage(); grid.getChildAt(0)?.requestFocus() }
                 }.onFailure {
-                    Log.w("akis", "search failed: ${it.javaClass.simpleName}")
+                    Log.w("seyir", "search failed: ${it.javaClass.simpleName}")
                     setStatus(getString(R.string.network_error))
                 }
             }

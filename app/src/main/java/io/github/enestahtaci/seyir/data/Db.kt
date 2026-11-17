@@ -1,12 +1,12 @@
-package io.github.enestahtaci.akis.data
+package io.github.enestahtaci.seyir.data
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import io.github.enestahtaci.akis.yt.Channel
-import io.github.enestahtaci.akis.yt.Video
+import io.github.enestahtaci.seyir.yt.Channel
+import io.github.enestahtaci.seyir.yt.Video
 import java.util.concurrent.Executors
 
 /**
@@ -14,7 +14,7 @@ import java.util.concurrent.Executors
  * resume position, and the cached subscription feed. Plain SQLite, no ORM.
  * All methods do disk I/O: never call them on the UI thread (screens use [io]; SQLiteOpenHelper is thread-safe).
  */
-class Db private constructor(context: Context) : SQLiteOpenHelper(context, "akis.db", null, 1) {
+class Db private constructor(context: Context) : SQLiteOpenHelper(context, "seyir.db", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE subscription (url TEXT PRIMARY KEY, name TEXT NOT NULL, avatar TEXT, added_at INTEGER NOT NULL)")
