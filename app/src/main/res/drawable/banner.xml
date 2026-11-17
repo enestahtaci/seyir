@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder 320x180 home-screen banner (a play triangle on a dark card); replaced with the real logo later. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/panel" />
+            <size android:width="320dp" android:height="180dp" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:width="112dp" android:height="80dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/accent" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:width="40dp" android:height="40dp" android:drawable="@drawable/play_triangle" />
+</layer-list>

@@ -1,0 +1,25 @@
+# All versions live here. Policy (same as enestv): newest stable release only (no alpha/beta/rc); JDK is an LTS.
+# NewPipe Extractor is the exception to "update freely": YouTube changes break it, so update it on purpose, read its
+# release notes, and test playback on the TV before shipping.
+[versions]
+agp = "9.5.1"
+kotlin = "2.4.21"
+recyclerview = "1.4.0"
+media3 = "1.11.1"
+newpipe-extractor = "v0.27.1"
+desugar = "2.1.5"
+junit = "4.13.2"
+
+[libraries]
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3" }
+media3-exoplayer-dash = { module = "androidx.media3:media3-exoplayer-dash", version.ref = "media3" }
+media3-exoplayer-hls = { module = "androidx.media3:media3-exoplayer-hls", version.ref = "media3" }
+media3-ui = { module = "androidx.media3:media3-ui", version.ref = "media3" }
+newpipe-extractor = { module = "com.github.TeamNewPipe:NewPipeExtractor", version.ref = "newpipe-extractor" }
+desugar = { module = "com.android.tools:desugar_jdk_libs_nio", version.ref = "desugar" }
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

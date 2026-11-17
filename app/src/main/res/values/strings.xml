@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Akış</string>
+    <string name="nav_home">Ana sayfa</string>
+    <string name="nav_subscriptions">Abonelikler</string>
+    <string name="nav_shorts">Shorts</string>
+    <string name="nav_search">Ara</string>
+    <string name="nav_history">Geçmiş</string>
+    <string name="search_hint">YouTube\'da ara</string>
+    <string name="search_start">Aramak istediğin şeyi yaz ve Tamam\'a bas.</string>
+    <string name="searching">Aranıyor…</string>
+    <string name="loading">Yükleniyor…</string>
+    <string name="no_results">Sonuç bulunamadı.</string>
+    <string name="network_error">Bağlantı kurulamadı. İnternetini kontrol edip tekrar dene.</string>
+    <string name="loading_video">Video açılıyor…</string>
+    <string name="play_error">Bu video oynatılamadı.</string>
+    <string name="live">CANLI</string>
+    <string name="shorts">SHORTS</string>
+    <string name="continue_watching">İzlemeye devam et</string>
+    <string name="latest_from_subscriptions">Aboneliklerinden yeni videolar</string>
+    <string name="no_subscriptions">Henüz aboneliğin yok. Ara\'dan bir kanal bul, kanala girip Abone ol\'a bas. İpucu: bir videonun üzerinde Tamam\'a basılı tutunca kanalı açılır.</string>
+    <string name="no_shorts">Aboneliklerinden yeni Shorts yok.</string>
+    <string name="no_history">Henüz bir şey izlemedin.</string>
+    <string name="subscribe">Abone ol</string>
+    <string name="unsubscribe">Abonelikten çık</string>
+    <string name="tab_videos">Videolar</string>
+    <string name="tab_shorts">Shorts</string>
+    <string name="tab_live">Canlı</string>
+    <string name="empty_tab">Bu bölümde video yok.</string>
+    <string name="resumed_at">%1$s noktasından devam ediliyor</string>
+    <string name="nav_settings">Ayarlar</string>
+    <string name="settings_playback">Oynatma</string>
+    <string name="settings_quality">Video kalitesi (en yüksek)</string>
+    <string name="settings_sponsorblock">SponsorBlock</string>
+    <string name="settings_sponsorblock_about">Topluluğun işaretlediği bölümleri otomatik atlar. Gizlilik: izlediğin video SponsorBlock\'a bildirilmez, yalnızca kimliğinin karmasının ilk 4 karakteri gönderilir.</string>
+    <string name="settings_skip_categories">Atlanacak bölümler</string>
+    <string name="settings_data">Veriler</string>
+    <string name="settings_clear_history">İzleme geçmişini temizle</string>
+    <string name="settings_clear_confirm">Emin misin? Silmek için tekrar Tamam\'a bas</string>
+    <string name="settings_history_cleared">Geçmiş temizlendi</string>
+    <string name="settings_version">Akış %1$s · kişisel kullanım için · GPL-3.0</string>
+    <string name="on">Açık</string>
+    <string name="off">Kapalı</string>
+    <string name="skip">Atla</string>
+    <string name="dont_skip">Atlama</string>
+    <string name="skipped">%1$s atlandı</string>
+</resources>

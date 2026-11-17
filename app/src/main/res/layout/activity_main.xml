@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- YouTube-on-TV layout: navigation on the left, the selected page on the right. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/nav"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/app_name"
+            android:textColor="@color/text"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView android:id="@+id/navHome" style="@style/Akis.Nav" android:text="@string/nav_home" />
+        <TextView android:id="@+id/navSubscriptions" style="@style/Akis.Nav" android:text="@string/nav_subscriptions" />
+        <TextView android:id="@+id/navShorts" style="@style/Akis.Nav" android:text="@string/nav_shorts" />
+        <TextView android:id="@+id/navSearch" style="@style/Akis.Nav" android:text="@string/nav_search" />
+        <TextView android:id="@+id/navHistory" style="@style/Akis.Nav" android:text="@string/nav_history" />
+        <TextView android:id="@+id/navSettings" style="@style/Akis.Nav" android:text="@string/nav_settings" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="32dp"
+        android:paddingEnd="40dp">
+
+        <EditText
+            android:id="@+id/query"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/field_background"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textColor="@color/text"
+            android:textColorHint="@color/muted"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:maxWidth="900dp"
+            android:textColor="@color/muted"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <!-- Settings page: rows are added in code (MainActivity.buildSettings). -->
+        <ScrollView
+            android:id="@+id/settings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="48dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/settingsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+        </ScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:descendantFocusability="afterDescendants"
+            android:paddingBottom="48dp" />
+    </LinearLayout>
+</LinearLayout>
