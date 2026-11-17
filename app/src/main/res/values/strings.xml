@@ -44,4 +44,17 @@
     <string name="skip">Atla</string>
     <string name="dont_skip">Atlama</string>
     <string name="skipped">%1$s atlandı</string>
+    <string name="settings_update">Güncelleme</string>
+    <string name="settings_update_check">Güncellemeleri denetle</string>
+    <string name="settings_update_about">Yüklü sürüm: %1$s. Yeni sürümler yalnızca github.com/enestahtaci/seyir adresinden, Seyir\'in kendi imzasını taşıyorsa kurulur. Denetim sırasında GitHub yalnızca IP adresini görür.</string>
+    <string name="update_checking">Denetleniyor…</string>
+    <string name="update_none">Güncel</string>
+    <string name="update_failed">Denetlenemedi, tekrar dene</string>
+    <string name="update_available">%1$s hazır, kurmak için Tamam\'a bas</string>
+    <string name="update_need_permission">Açılan ekranda Seyir\'e izin ver, sonra tekrar Tamam\'a bas</string>
+    <string name="update_downloading">İndiriliyor… %%%1$d</string>
+    <string name="update_bad_signature">İndirilen dosya Seyir\'in imzasını taşımıyor, kurulmadı</string>
+    <string name="update_download_failed">İndirilemedi, tekrar dene</string>
+    <string name="update_installing">Kurulum ekranı açılıyor…</string>
+    <string name="update_badge">Güncelleme var</string>
 </resources>

@@ -1,6 +1,8 @@
 package io.github.enestahtaci.seyir
 
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -23,6 +25,7 @@ import io.github.enestahtaci.seyir.data.Feed
 import io.github.enestahtaci.seyir.data.Settings
 import io.github.enestahtaci.seyir.ui.CardAdapter
 import io.github.enestahtaci.seyir.ui.Header
+import io.github.enestahtaci.seyir.update.Updater
 import io.github.enestahtaci.seyir.yt.Video
 import io.github.enestahtaci.seyir.yt.YouTube
 import java.util.concurrent.Executors
@@ -102,6 +105,7 @@ class MainActivity : Activity() {
         registerBack()
         show(Page.HOME)
         navItems.getValue(Page.HOME).requestFocus()
+        checkForUpdateQuietly()
     }
 
     override fun onRestart() {
@@ -206,6 +210,10 @@ class MainActivity : Activity() {
             settingsRefreshers += { view.isFocusable = settings.sponsorBlock; view.alpha = if (settings.sponsorBlock) 1f else 0.4f }
         }
 
+        header(R.string.settings_update)
+        row(getString(R.string.settings_update_check), { updateText }) { onUpdateRow() }
+        note(0, getString(R.string.settings_update_about, Updater.installedVersion(this)))
+
         header(R.string.settings_data)
         var confirming = false
         val clear = row(getString(R.string.settings_clear_history), { "" }) {}
@@ -226,6 +234,80 @@ class MainActivity : Activity() {
         val version = runCatching { packageManager.getPackageInfo(packageName, 0).versionName }.getOrNull().orEmpty()
         note(0, getString(R.string.settings_version, version))
         settingsRefreshers.forEach { it() }
+    }
+
+    // --- updates ---
+
+    private var update: Updater.Release? = null
+    private var updateText = ""
+    @Volatile private var updateBusy = false
+
+    private fun setUpdateText(text: String) {
+        updateText = text
+        settingsRefreshers.forEach { it() }
+    }
+
+    /** At most every 6 hours, quietly ask GitHub for a newer version; if there is one, show the badge in the menu. */
+    private fun checkForUpdateQuietly() {
+        val now = System.currentTimeMillis()
+        if (now - settings.lastUpdateCheck < 6 * 3600_000L) return
+        settings.lastUpdateCheck = now
+        network.execute {
+            val found = runCatching { Updater.latest() }.getOrNull()
+                ?.takeIf { Updater.isNewer(it.version, Updater.installedVersion(this)) }
+            if (found != null) main.post { showUpdate(found) }
+        }
+    }
+
+    private fun showUpdate(release: Updater.Release) {
+        update = release
+        findViewById<View>(R.id.updateBadge).visibility = View.VISIBLE
+        setUpdateText(getString(R.string.update_available, release.version))
+    }
+
+    /** OK on Ayarlar > Güncelleme: check, then (when there is one) download, verify and install. */
+    private fun onUpdateRow() {
+        if (updateBusy) return
+        val release = update
+        if (release == null) {
+            updateBusy = true
+            setUpdateText(getString(R.string.update_checking))
+            network.execute {
+                val result = runCatching { Updater.latest() }
+                main.post {
+                    updateBusy = false
+                    settings.lastUpdateCheck = System.currentTimeMillis()
+                    result.onSuccess { latest ->
+                        if (latest != null && Updater.isNewer(latest.version, Updater.installedVersion(this))) showUpdate(latest)
+                        else setUpdateText(getString(R.string.update_none))
+                    }.onFailure { setUpdateText(getString(R.string.update_failed)) }
+                }
+            }
+            return
+        }
+        if (!Updater.canInstall(this)) {
+            // Android asks once whether Seyir may install apps; the TV opens its own settings screen for that.
+            setUpdateText(getString(R.string.update_need_permission))
+            runCatching {
+                startActivity(Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:$packageName")))
+            }
+            return
+        }
+        updateBusy = true
+        network.execute {
+            val outcome = runCatching {
+                val apk = Updater.download(this, release) { percent ->
+                    main.post { setUpdateText(getString(R.string.update_downloading, percent)) }
+                }
+                if (!Updater.isSameApp(this, apk)) { apk.delete(); return@runCatching R.string.update_bad_signature }
+                Updater.install(this, apk)
+                R.string.update_installing
+            }
+            main.post {
+                updateBusy = false
+                setUpdateText(getString(outcome.getOrDefault(R.string.update_download_failed)))
+            }
+        }
     }
 
     private fun header(text: Int) {

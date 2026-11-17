@@ -15,6 +15,11 @@ class Settings private constructor(private val prefs: SharedPreferences) {
         get() = prefs.getBoolean(KEY_SPONSORBLOCK, true)
         set(value) = prefs.edit().putBoolean(KEY_SPONSORBLOCK, value).apply()
 
+    /** When the app last asked GitHub for a new version (epoch ms); checked at most every few hours. */
+    var lastUpdateCheck: Long
+        get() = prefs.getLong("update.checked", 0)
+        set(value) = prefs.edit().putLong("update.checked", value).apply()
+
     fun skips(category: String): Boolean = prefs.getBoolean("sb.$category", category in DEFAULT_SKIPS)
 
     fun setSkips(category: String, skip: Boolean) = prefs.edit().putBoolean("sb.$category", skip).apply()

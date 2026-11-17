@@ -1,6 +1,16 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+
+// Release signing key: kept OUTSIDE the repository, in Documents\seyir-anahtar (or -Pseyir.keyDir=<folder>), with
+// keystore.properties next to it (storeFile, storePassword, keyAlias, keyPassword). Nothing here is ever printed.
+// Without that file the release build falls back to the debug key, which cannot update the real installs.
+val keyDir: File = providers.gradleProperty("seyir.keyDir").orNull?.let(::File)
+    ?: File(System.getProperty("user.home"), "Documents/seyir-anahtar")
+val keyProps: Properties? = providers.fileContents(layout.projectDirectory.file(File(keyDir, "keystore.properties").absolutePath))
+    .asText.orNull?.let { text -> Properties().apply { load(text.reader()) } }
 
 android {
     namespace = "io.github.enestahtaci.seyir"
@@ -14,13 +24,28 @@ android {
         versionName = "0.1.0"
     }
 
+    signingConfigs {
+        if (keyProps != null) {
+            create("release") {
+                storeFile = File(keyDir, keyProps.getProperty("storeFile"))
+                storePassword = keyProps.getProperty("storePassword")
+                keyAlias = keyProps.getProperty("keyAlias")
+                keyPassword = keyProps.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // Until the real release key exists (kept outside the repo), test builds use the debug key.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = if (keyProps != null) {
+                signingConfigs.getByName("release")
+            } else {
+                logger.warn("Seyir: keystore.properties not found in $keyDir; release APK is signed with the DEBUG key.")
+                signingConfigs.getByName("debug")
+            }
         }
     }
 

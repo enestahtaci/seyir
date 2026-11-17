@@ -25,6 +25,19 @@
             android:textSize="26sp"
             android:textStyle="bold" />
 
+        <!-- Shown when a newer version is on GitHub; installed from Ayarlar > Güncelleme. -->
+        <TextView
+            android:id="@+id/updateBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/update_badge"
+            android:textColor="@color/accent"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
         <TextView android:id="@+id/navHome" style="@style/Seyir.Nav" android:text="@string/nav_home" />
         <TextView android:id="@+id/navSubscriptions" style="@style/Seyir.Nav" android:text="@string/nav_subscriptions" />
         <TextView android:id="@+id/navShorts" style="@style/Seyir.Nav" android:text="@string/nav_shorts" />
